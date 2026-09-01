@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SalesLens AI turns sales data into clear business insights." />
+  <title>SalesLens AI — Turn sales data into clear business insights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top"><span class="brand-mark">S</span><span>SalesLens<span class="accent">AI</span></span></a>
+      <nav class="nav-links">
+        <a class="active" href="#dashboard">Overview</a>
+        <a href="#upload">Upload data</a>
+        <a href="#insights">Insights</a>
+        <a href="#report">Report</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="status-dot"></span> Analysis workspace</div>
+    </aside>
+
+    <main>
+      <header class="topbar" id="top">
+        <div><p class="eyebrow">SALES INTELLIGENCE</p><h1>See the story behind your sales.</h1></div>
+        <button class="ghost-btn" id="loadDemo">Load demo data</button>
+      </header>
+
+      <section class="hero-card" id="upload">
+        <div>
+          <span class="pill">NEW ANALYSIS</span>
+          <h2>Upload your sales file.<br><span>We make it understandable.</span></h2>
+          <p>Start with a CSV containing sales, revenue, products, dates, or regions. SalesLens automatically detects useful columns and builds your first dashboard.</p>
+          <label class="primary-btn" for="fileInput">Choose CSV file<input id="fileInput" type="file" accept=".csv,text/csv" hidden></label>
+          <p class="upload-note" id="fileName">No file selected — or load the demo.</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="mini-card"><span>Revenue trend</span><strong>+24.8%</strong><svg viewBox="0 0 260 90"><path d="M5 72 C45 65 45 28 83 48 S135 70 166 34 S218 20 255 8"/></svg></div>
+        </div>
+      </section>
+
+      <section id="dashboard" class="dashboard-section">
+        <div class="section-heading"><div><p class="eyebrow">LIVE OVERVIEW</p><h2>Your business at a glance</h2></div><span id="datasetLabel" class="dataset-label">Waiting for data</span></div>
+        <div class="metrics-grid">
+          <article class="metric-card"><span>Total revenue</span><strong id="totalRevenue">—</strong><small id="revenueHint">Upload a file to calculate</small></article>
+          <article class="metric-card"><span>Transactions</span><strong id="totalOrders">—</strong><small id="ordersHint">—</small></article>
+          <article class="metric-card"><span>Best product</span><strong id="bestProduct">—</strong><small id="productHint">—</small></article>
+          <article class="metric-card"><span>Top region</span><strong id="bestRegion">—</strong><small id="regionHint">—</small></article>
+        </div>
+        <div class="charts-grid">
+          <article class="chart-card wide"><div class="card-title"><div><span>PERFORMANCE</span><h3>Revenue over time</h3></div><span class="chart-tag">Automatic</span></div><canvas id="trendChart"></canvas></article>
+          <article class="chart-card"><div class="card-title"><div><span>BREAKDOWN</span><h3>Top products</h3></div></div><canvas id="productChart"></canvas></article>
+        </div>
+      </section>
+
+      <section id="insights" class="insights-section">
+        <div class="section-heading"><div><p class="eyebrow">SIGNALS</p><h2>What deserves your attention</h2></div></div>
+        <div id="insightsList" class="insights-list">
+          <article class="insight empty"><span class="insight-icon">✦</span><div><h3>Your insights will appear here</h3><p>Upload a CSV or load the demo to discover trends, concentration risks, and performance signals.</p></div></article>
+        </div>
+      </section>
+
+      <section id="report" class="report-card">
+        <div><p class="eyebrow">REPORT WORKSPACE</p><h2>Turn analysis into a clear summary.</h2><p id="reportText">Your report summary will be generated from the dataset currently loaded in SalesLens.</p></div>
+        <button class="primary-btn button" id="copyReport">Copy summary</button>
+      </section>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
